@@ -168,9 +168,9 @@ void TriangleMesh::Triangle::expandBox(BBox& box) {
 }
 
 void TriangleMesh::onBeforeRender() {
-	if (faces.size() < 50) {
-		return;
-	}
+	// if (faces.size() < 50) {
+	// 	return;
+	// }
 
 	if (!accelerator) {
 		accelerator = makeDefaultAccelerator();

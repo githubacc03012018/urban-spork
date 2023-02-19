@@ -58,9 +58,9 @@ void Instancer::onBeforeRender() {
 	for (int c = 0; c < instances.size(); c++) {
 		instances[c].primitive->onBeforeRender();
 	}
-	if (instances.size() < 50) {
-		return;
-	}
+	// if (instances.size() < 50) {
+	// 	return;
+	// }
 
 	if (!accelerator) {
 		accelerator = makeDefaultAccelerator();

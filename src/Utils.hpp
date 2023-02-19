@@ -266,6 +266,51 @@ struct BBox {
 		};
 	}
 
+	// Chaos Homework
+	float surfaceArea() const {
+		auto d = diagonal();
+		return 2 * (d.x * d.y + d.x * d.z + d.y * d.z);
+	}
+
+	// Chaos Homework
+	vec3 diagonal() const {
+		return max - min;	
+	}
+
+	// Chaos Homework
+	 int maximumExtent() const {
+        vec3 d = diagonal();
+        if (d.x > d.y && d.x > d.z)
+            return 0;
+        else if (d.y > d.z)
+            return 1;
+        else
+            return 2;
+    }
+
+	// Chaos Homework
+	bool intersect(const Ray& ray, float& minT, float& maxT) const {
+		float t0 = 0;
+		float t1 = INFINITY;
+
+		for(int i =0; i < 3; i++) {
+			float rayDirInv = 1 / ray.dir[i];
+			float tNear = (min[i] - ray.origin[i]) * rayDirInv;
+			float tFar = (max[i] - ray.origin[i]) * rayDirInv;
+
+			if(tNear > tFar) {
+				std::swap(tNear, tFar);
+			}	
+
+			minT = t0 > minT ? t0 : minT;
+			maxT = t1 < maxT ? t1 : maxT;
+
+			if(maxT <= minT) return false;
+		}
+
+		return true;
+	}
+	
 	/// @brief Check if a ray intersects the box
 	bool testIntersect(const Ray& ray) const {
 		// source: https://github.com/anrieff/quaddamage/blob/master/src/bbox.h

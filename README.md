@@ -6,10 +6,11 @@ Most of the code is from [Ray Tracing in One Weekend](http://www.realtimerenderi
 
 Some of the mesh/bouding box intersections are from Veselin Georgiev's great [raytracer](https://github.com/anrieff/quaddamage) 
 
+# Accelerators.cpp contains an attempt (hence the glitchy renders) at implementing the KD-tree from https://pbr-book.org/ (with minor changes) 
 # Dragon scene
 ![dragon](https://user-images.githubusercontent.com/35046103/219962875-43abefb5-3333-4af9-8f0b-b2197970a031.png)
 
-# Example scene
+# Example scene (KD-tree is being built even for this simple scene)
 ![example](https://user-images.githubusercontent.com/35046103/219962881-ea083ce7-7caf-490e-9603-96e9fe185b71.png)
 
 # Instanced cubes
